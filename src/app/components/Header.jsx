@@ -19,7 +19,7 @@ function Header() {
   };
 
   return (
-    <section className="  container mx-auto flex flex-col px-12 py-4  mt-11">
+    <section className=" overflow-hidden container mx-auto flex flex-col px-12 py-4 justify-center items-center  min-h-screen">
       <div className="grid grid-cols-1 lg:grid-cols-12">
         <div className="col-span-7 mt-20">
           <motion.div
@@ -27,7 +27,7 @@ function Header() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.6 }}
           >
-            <h1 className="text-white mb-4 text-4xl lg:text-5xl font-extrabold">
+            <h1 className="text-transparent bg-gradient-to-r bg-clip-text from-emerald-300 to-emerald-950 mb-4 text-4xl lg:text-5xl font-extrabold">
               Hello, I'm Febriansyah
             </h1>
           </motion.div>
@@ -60,9 +60,9 @@ function Header() {
               animate="visible"
               variants={iconVariants}
               href="#"
-              className="bg-emerald-700 hover:bg-emerald-900 text-white py-4 px-10 rounded"
+              className=" border-2 border-emerald-700 hover:bg-emerald-900 text-white py-4 px-10 rounded-full"
             >
-              Hire Me
+              Download CV
             </motion.a>
 
             <div className="flex flex-x-4 gap-4 ">
@@ -75,7 +75,7 @@ function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaGithub className="text-5xl text-white hover:text-gray-600" />
+                <FaGithub className="text-5xl  text-white hover:text-gray-600" />
               </motion.a>
               <motion.a
                 custom={2}
@@ -103,7 +103,7 @@ function Header() {
             </div>
           </div>
         </div>
-        <div className="col-span-5 flex items-center justify-center">
+        <div className="col-span-5 flex items-center justify-center mt-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -117,17 +117,17 @@ function Header() {
           >
             {/* Lingkaran latar belakang */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-full h-full bg-slate-800 rounded-full"></div>
+              <div className="w-full h-full bg-gradient-to-r from-slate-700 to-slate-900 rounded-full"></div>
             </div>
 
             {/* Gambar */}
-            <div className="relative z-10">
+            <div className="relative z-10 ">
               <Image
                 src="/images/me-diff.png"
                 alt="me image"
-                className="rounded-full size-auto"
-                width={300}
-                height={300}
+                className="rounded-full size-auto "
+                width={400}
+                height={400}
               />
             </div>
           </motion.div>
