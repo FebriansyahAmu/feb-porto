@@ -5,7 +5,7 @@ import { useState } from "react";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="bg-gray-800 p-4">
+    <nav className="bg-transparent p-4">
       <div className="container mx-auto flex justify-between items-center">
         <a href="#" className="text-white text-3xl font-bold ml-11">
           WriteLine
@@ -16,15 +16,18 @@ function Navbar() {
             Home
           </a>
           <a href="" className="text-gray-300 hover:text-white">
-            About
+            Profiles
+          </a>
+          <a href="" className="text-gray-300 hover:text-white">
+            Contact Me
           </a>
 
-          <a
+          {/* <a
             href=""
             className="bg-blue-500 text-white rounded hover:bg-blue-700"
           >
             Hire Me
-          </a>
+          </a> */}
         </div>
         <div className="md:hidden">
           <button
