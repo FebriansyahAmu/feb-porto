@@ -22,7 +22,7 @@ function Navbar() {
             className="flex items-center text-emerald-400 text-3xl font-bold ml-11"
           >
             <Image
-              src="/images/images.png"
+              src="/images/writeline.png"
               alt="logo"
               width={50}
               height={50}
