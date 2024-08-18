@@ -28,7 +28,7 @@ function Header() {
             transition={{ duration: 1, delay: 0.6 }}
           >
             <h1 className="text-transparent bg-gradient-to-r bg-clip-text from-emerald-300 to-emerald-950 text-4xl lg:text-5xl font-extrabold">
-              Hello, I'm Febriansyah
+              Hello, I&apos;m Febriansyah
             </h1>
             <h3 className="text-emerald-700 mb-4 text-3xl  font-extrabold">
               Fullstack Developer
