@@ -15,7 +15,7 @@ function Navbar() {
         delay: 0.4,
       }}
     >
-      <nav className="p-4 fixed top-0 w-full bg-slate-900">
+      <nav className="p-4 fixed top-0 left-0 right-0 z-10 w-full bg-slate-900">
         <div className="container mx-auto flex justify-between items-center">
           <a
             href="#"
@@ -38,10 +38,13 @@ function Navbar() {
             <a href="/profile" className="text-gray-300 hover:text-emerald-400">
               Profile
             </a>
-            <a href="" className="text-gray-300 hover:text-emerald-400">
+            <a
+              href="/projects"
+              className="text-gray-300 hover:text-emerald-400"
+            >
               Projects
             </a>
-            <a href="#" className="text-gray-300 hover:text-emerald-400">
+            <a href="/contact" className="text-gray-300 hover:text-emerald-400">
               Contact Me
             </a>
 
@@ -77,16 +80,25 @@ function Navbar() {
 
         {isOpen && (
           <div className="md:hidden bg-slate-900 flex items-center flex-col space-y-4 mt-4">
-            <a href="#" className="block text-gray-300 hover:text-emerald-400">
+            <a href="/" className="block text-gray-300 hover:text-emerald-400">
               Home
             </a>
-            <a href="#" className="block text-gray-300 hover:text-emerald-400">
+            <a
+              href="/profile"
+              className="block text-gray-300 hover:text-emerald-400"
+            >
               Profile
             </a>
-            <a href="#" className="text-gray-300 hover:text-emerald-400">
+            <a
+              href="/projects"
+              className="text-gray-300 hover:text-emerald-400"
+            >
               Projects
             </a>
-            <a href="#" className="block text-gray-300 hover:text-emerald-400">
+            <a
+              href="/contact"
+              className="block text-gray-300 hover:text-emerald-400"
+            >
               Contact Me
             </a>
           </div>

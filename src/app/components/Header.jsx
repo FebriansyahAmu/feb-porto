@@ -27,9 +27,12 @@ function Header() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.6 }}
           >
-            <h1 className="text-transparent bg-gradient-to-r bg-clip-text from-emerald-300 to-emerald-950 mb-4 text-4xl lg:text-5xl font-extrabold">
+            <h1 className="text-transparent bg-gradient-to-r bg-clip-text from-emerald-300 to-emerald-950 text-4xl lg:text-5xl font-extrabold">
               Hello, I'm Febriansyah
             </h1>
+            <h3 className="text-emerald-700 mb-4 text-3xl  font-extrabold">
+              Fullstack Developer
+            </h3>
           </motion.div>
           <motion.div
             initial={{ opacity: 0 }}
@@ -37,10 +40,10 @@ function Header() {
             transition={{ duration: 1, delay: 0.9 }}
           >
             <p className="text-gray-300 text-lg lg:text-xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
-              atque deleniti aperiam tempora, odit nobis fuga minima. Culpa, vel
-              aperiam rem unde itaque maxime nihil eos, non magnam soluta
-              necessitatibus.
+              I am a Fullstack Developer with a degree in Informatics
+              Engineering. Experienced in .NET, ASP, Next.js, PHP, HTML and
+              Express, I focus on developing modern and user-friendly dinamyc or
+              static website and desktop applications.
             </p>
           </motion.div>
           <div className="flex space-x-4 mt-11">
@@ -86,7 +89,7 @@ function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaFacebook className="text-5xl text-white hover:text-blue-400" />
+                <FaFacebook className="text-5xl text-white hover:text-gray-600" />
               </motion.a>
 
               <motion.a
@@ -98,7 +101,7 @@ function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaInstagram className="text-5xl text-white hover:text-pink-400" />
+                <FaInstagram className="text-5xl text-white hover:text-gray-600" />
               </motion.a>
             </div>
           </div>
