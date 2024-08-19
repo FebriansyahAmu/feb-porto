@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { FaGithub, FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 function Header() {
@@ -46,7 +46,43 @@ function Header() {
               static website and desktop applications.
             </p>
           </motion.div>
-          <div className="flex space-x-4 mt-11">
+          <div className="flex flex-x-4 gap-4 mt-6">
+            <motion.a
+              custom={1}
+              initial="hidden"
+              animate="visible"
+              variants={iconVariants}
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub className="text-4xl  text-white hover:text-gray-600" />
+            </motion.a>
+            <motion.a
+              custom={2}
+              initial="hidden"
+              animate="visible"
+              variants={iconVariants}
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebook className="text-4xl text-white hover:text-gray-600" />
+            </motion.a>
+
+            <motion.a
+              custom={3}
+              initial="hidden"
+              animate="visible"
+              variants={iconVariants}
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin className="text-4xl text-white hover:text-gray-600" />
+            </motion.a>
+          </div>
+          <div className="flex space-x-4 mt-5">
             {/* <div className="relative">
               <div className="absolute inset-0 bg-emerald-300 rounded-lg blur-xl "></div>
               <a
@@ -63,50 +99,13 @@ function Header() {
               animate="visible"
               variants={iconVariants}
               href="#"
-              className=" border-2 border-emerald-700 hover:bg-emerald-900 text-white py-4 px-10 rounded-full"
+              className="text-sm border-2 border-emerald-700 hover:bg-emerald-900 text-white py-4 px-6 rounded-full"
             >
               Download CV
             </motion.a>
-
-            <div className="flex flex-x-4 gap-4 ">
-              <motion.a
-                custom={1}
-                initial="hidden"
-                animate="visible"
-                variants={iconVariants}
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaGithub className="text-5xl  text-white hover:text-gray-600" />
-              </motion.a>
-              <motion.a
-                custom={2}
-                initial="hidden"
-                animate="visible"
-                variants={iconVariants}
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaFacebook className="text-5xl text-white hover:text-gray-600" />
-              </motion.a>
-
-              <motion.a
-                custom={3}
-                initial="hidden"
-                animate="visible"
-                variants={iconVariants}
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaInstagram className="text-5xl text-white hover:text-gray-600" />
-              </motion.a>
-            </div>
           </div>
         </div>
-        <div className="col-span-5 flex items-center justify-center mt-10">
+        <div className="col-span-5 flex items-center justify-center mt-10 z-0">
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -115,7 +114,7 @@ function Header() {
               delay: 0.5,
               ease: [0, 0.71, 0.2, 1.01],
             }}
-            className="relative flex items-center justify-center"
+            className="relative flex items-center justify-center "
             style={{ width: 400, height: 400 }}
           >
             {/* Lingkaran latar belakang */}

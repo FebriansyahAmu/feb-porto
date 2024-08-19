@@ -2,7 +2,17 @@
 import Navbar from "../components/Navbar";
 import { FaWhatsapp } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import * as Yup from "yup";
 export default function Contact() {
+  const validationSchema = Yup.object({
+    firstName: Yup.string().required("First name is required"),
+    lastName: Yup.string().required("Last name is required"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
+    message: Yup.string().required("Message is required"),
+  });
   return (
     <>
       <Navbar />
@@ -25,88 +35,127 @@ export default function Contact() {
                 <p className="mt-1 text-sm leading-6 text-gray-300">
                   Please fill out this form to contact me.
                 </p>
-                <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 ">
-                  <div className="sm:col-span-3">
-                    <label
-                      htmlFor="first-name"
-                      className="block text-sm font-medium leading-6 text-gray-100"
-                    >
-                      First name
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        type="text"
-                        name="first-name"
-                        id="first-name"
-                        autoComplete="given-name"
-                        className=" block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-700 sm:text-sm sm:leading-6"
-                      />
-                    </div>
-                  </div>
+                <Formik
+                  initialValues={{
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+                    message: "",
+                  }}
+                  validationSchema={validationSchema}
+                  onSubmit={(values, { setSubmitting }) => {
+                    setTimeout(() => {
+                      alert(JSON.stringify(values, null, 2));
+                      setSubmitting(false);
+                    }, 400);
+                  }}
+                >
+                  {({ isSubmitting }) => (
+                    <Form className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 ">
+                      <div className="sm:col-span-3">
+                        <label
+                          htmlFor="first-name"
+                          className="block text-sm font-medium leading-6 text-gray-100"
+                        >
+                          First name
+                        </label>
+                        <div className="mt-2">
+                          <Field
+                            type="text"
+                            name="firstName"
+                            id="first-name"
+                            autoComplete="given-name"
+                            className=" block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300  placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-700 sm:text-sm sm:leading-6"
+                          />
+                          <ErrorMessage
+                            name="firstName"
+                            component="div"
+                            className="text-red-600 text-sm mt-1"
+                          />
+                        </div>
+                      </div>
 
-                  <div className="sm:col-span-3">
-                    <label
-                      htmlFor="last-name"
-                      className="block text-sm font-medium leading-6 text-gray-100"
-                    >
-                      Last name
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        type="text"
-                        name="last-name"
-                        id="last-name"
-                        autoComplete="family-name"
-                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-700 sm:text-sm sm:leading-6"
-                      />
-                    </div>
-                  </div>
+                      <div className="sm:col-span-3">
+                        <label
+                          htmlFor="last-name"
+                          className="block text-sm font-medium leading-6 text-gray-100"
+                        >
+                          Last name
+                        </label>
+                        <div className="mt-2">
+                          <Field
+                            type="text"
+                            name="lastName"
+                            id="last-name"
+                            autoComplete="family-name"
+                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-700 sm:text-sm sm:leading-6"
+                          />
+                          <ErrorMessage
+                            name="lastName"
+                            component="div"
+                            className="text-red-600 text-sm mt-1"
+                          />
+                        </div>
+                      </div>
 
-                  <div className="sm:col-span-4">
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium leading-6 text-gray-100"
-                    >
-                      Email address
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        autoComplete="email"
-                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-700 sm:text-sm sm:leading-6"
-                      />
-                    </div>
-                  </div>
-                  <div className="sm:col-span-6 ">
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium leading-6 text-gray-100"
-                    >
-                      Message
-                    </label>
-                    <div className="mt-2">
-                      <textarea
-                        id="message"
-                        name="message"
-                        rows="4"
-                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-700 sm:text-sm sm:leading-6"
-                        placeholder="Write your message here..."
-                      ></textarea>
-                    </div>
-                  </div>
-                  <div className="sm:col-span-6 flex justify-center">
-                    <div className="mt-3">
-                      <button
-                        type="submit"
-                        className="inline-flex justify-center rounded-full border-2 border-emerald-700 py-2 px-4 text-sm font-semibold text-white shadow-sm hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-700"
-                      >
-                        Send Email
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                      <div className="sm:col-span-4">
+                        <label
+                          htmlFor="email"
+                          className="block text-sm font-medium leading-6 text-gray-100"
+                        >
+                          Email address
+                        </label>
+                        <div className="mt-2">
+                          <Field
+                            id="email"
+                            name="email"
+                            type="email"
+                            autoComplete="email"
+                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-700 sm:text-sm sm:leading-6"
+                          />
+                          <ErrorMessage
+                            name="email"
+                            component="div"
+                            className="text-red-600 text-sm mt-1"
+                          />
+                        </div>
+                      </div>
+                      <div className="sm:col-span-6 ">
+                        <label
+                          htmlFor="message"
+                          className="block text-sm font-medium leading-6 text-gray-100"
+                        >
+                          Message
+                        </label>
+                        <div className="mt-2">
+                          <Field
+                            id="message"
+                            name="message"
+                            rows="4"
+                            as="textarea"
+                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-700 sm:text-sm sm:leading-6"
+                            placeholder="Write your message here..."
+                          />
+                          <ErrorMessage
+                            name="message"
+                            component="div"
+                            className="text-red-600 text-sm mt-1"
+                          />
+                        </div>
+                      </div>
+                      <div className="sm:col-span-6 flex justify-center">
+                        <div className="mt-3">
+                          <button
+                            type="submit"
+                            className="inline-flex justify-center rounded-full border-2 border-emerald-700 py-2 px-4 text-sm font-semibold text-white shadow-sm hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-700"
+                          >
+                            {isSubmitting ? "Sending..." : "Send Email"}
+                          </button>
+                        </div>
+                      </div>
+                    </Form>
+                  )}
+                </Formik>
               </motion.div>
             </div>
 
